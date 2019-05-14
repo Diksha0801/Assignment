@@ -1,4 +1,4 @@
-import sqlalchemy as db
+import sqlalchemy as DB
 from sqlalchemy.orm import sessionmaker
 
 
@@ -12,10 +12,8 @@ class DbEngine:
     uri = "{}://{}:{}@{}:{}/{}".format(dbengine, user, password, host, port, database )
 
     try:
-        engine = db.create_engine(uri)
+        engine = DB.create_engine(uri)
         session = sessionmaker(bind=engine)
-        db.echo = False  # Try changing this to True and see what happens
+        DB.echo = False  # Try changing this to True and see what happens
     except Exception:
         print("Unable to connect to database")
-
-
