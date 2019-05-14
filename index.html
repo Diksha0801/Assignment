@@ -699,41 +699,12 @@ margin-bottom: 20px;
         defs["class"] = {
   "type" : "object",
   "properties" : {
-    "id" : {
-      "type" : "string",
-      "format" : "uuid"
-    },
-    "name" : {
+    "class_name" : {
       "type" : "string"
-    },
-    "class_id" : {
-      "type" : "string",
-      "format" : "uuid"
     }
   }
 };
         defs["inline_response_200"] = {
-  "properties" : {
-    "id" : {
-      "type" : "string",
-      "format" : "uuid"
-    },
-    "name" : {
-      "type" : "string"
-    },
-    "class_id" : {
-      "type" : "string",
-      "format" : "uuid"
-    },
-    "created_on" : {
-      "type" : "string"
-    },
-    "updated_on" : {
-      "type" : "string"
-    }
-  }
-};
-        defs["inline_response_200_1"] = {
   "properties" : {
     "student_id" : {
       "type" : "string",
@@ -754,10 +725,31 @@ margin-bottom: 20px;
     }
   }
 };
+        defs["inline_response_200_1"] = {
+  "properties" : {
+    "class_id" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "class_name" : {
+      "type" : "string"
+    },
+    "created_on" : {
+      "type" : "string"
+    },
+    "updated_on" : {
+      "type" : "string"
+    }
+  }
+};
         defs["person"] = {
   "type" : "object",
   "properties" : {
-    "name" : {
+    "student_id" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "student_name" : {
       "type" : "string"
     },
     "class_id" : {
@@ -775,17 +767,24 @@ margin-bottom: 20px;
     "class_id" : {
       "type" : "string",
       "format" : "uuid"
+    },
+    "class_name" : {
+      "type" : "string"
+    },
+    "class_leader" : {
+      "type" : "string",
+      "format" : "uuid"
     }
   }
 };
         defs["student"] = {
   "type" : "object",
   "properties" : {
-    "id" : {
+    "student_id" : {
       "type" : "string",
       "format" : "uuid"
     },
-    "name" : {
+    "student_name" : {
       "type" : "string"
     },
     "class_id" : {
@@ -1411,16 +1410,12 @@ except ApiException as e:
     "items" : {
       "type" : "object",
       "properties" : {
-        "student_id" : {
-          "type" : "string",
-          "format" : "uuid"
-        },
-        "student_name" : {
-          "type" : "string"
-        },
         "class_id" : {
           "type" : "string",
           "format" : "uuid"
+        },
+        "class_name" : {
+          "type" : "string"
         },
         "created_on" : {
           "type" : "string"
@@ -2300,11 +2295,11 @@ except ApiException as e:
     "items" : {
       "type" : "object",
       "properties" : {
-        "id" : {
+        "student_id" : {
           "type" : "string",
           "format" : "uuid"
         },
-        "name" : {
+        "student_name" : {
           "type" : "string"
         },
         "class_id" : {
