@@ -1,15 +1,15 @@
 from datetime import datetime
-from config import db
 from sqlalchemy.dialects.postgresql import UUID
+from config import DB
 
 
-class Student(db.Model):
+class Student(DB.Model):
     __tablename__ = "Student"
-    student_id = db.Column(UUID(as_uuid=True), unique=True, nullable=False, primary_key=True)
-    student_name = db.Column(db.String)
-    class_id = db.Column(db.ForeignKey('Class.class_id'),nullable=False)
-    created_on = db.Column(db.DateTime)
-    updated_on = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    student_id = DB.Column(UUID(as_uuid=True), unique=True, nullable=False, primary_key=True)
+    student_name = DB.Column(DB.String)
+    class_id = DB.Column(DB.ForeignKey('Class.class_id'), nullable=False)
+    created_on = DB.Column(DB.DateTime)
+    updated_on = DB.Column(DB.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     def __int__(self, student_name, class_id, created_on):
             self.student_name = student_name
@@ -17,13 +17,13 @@ class Student(db.Model):
             self.created_on = created_on
 
 
-class Class(db.Model):
+class Class(DB.Model):
     __tablename__ = 'Class'
-    class_id = db.Column(db.Integer, primary_key=True)
-    class_name = db.Column(db.String)
-    class_leader = db.Column(db.Integer, db.ForeignKey('Student.student_id'))
-    created_on = db.Column(db.DateTime, default=datetime.utcnow)
-    updated_on = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    class_id = DB.Column(DB.Integer, primary_key=True)
+    class_name = DB.Column(DB.String)
+    class_leader = DB.Column(DB.Integer, DB.ForeignKey('Student.student_id'))
+    created_on = DB.Column(DB.DateTime, default=datetime.utcnow)
+    updated_on = DB.Column(DB.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     def __int__(self, name, class_leader, created_on):
             self.class_name =  name
