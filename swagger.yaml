@@ -36,10 +36,10 @@ paths:
             type: array
             items:
               properties:
-                id:
+                student_id:
                   type: string
                   format: uuid
-                name:
+                student_name:
                   type: string
                 class_id:
                   type: string
@@ -64,10 +64,10 @@ paths:
           schema:
             type: object
             properties:
-              id:
+              student_id:
                 type: string
                 format: uuid
-              name:
+              student_name:
                 type: string
               class_id:
                 type: string
@@ -94,7 +94,10 @@ paths:
           schema:
             type: object
             properties:
-              name:
+              student_id:
+                type: string
+                format: uuid
+              student_name:
                 type: string
               class_id:
                 type: string
@@ -142,14 +145,11 @@ paths:
             type: array
             items:
               properties:
-                student_id:
-                  type: string
-                  format: uuid
-                student_name:
-                  type: string
                 class_id:
                   type: string
                   format: uuid
+                class_name:
+                  type: string
                 created_on:
                   type: string
                 updated_on:
@@ -169,14 +169,9 @@ paths:
           schema:
             type: object
             properties:
-              id:
+              class_name:
                 type: string
-                format: uuid
-              name:
-                type: string
-              class_id:
-                type: string
-                format: uuid
+
       responses:
         201:
           description: Successfully created person in list
@@ -202,6 +197,11 @@ paths:
               name:
                 type: string
               class_id:
+                type: string
+                format: uuid
+              class_name:
+                type: string
+              class_leader:
                 type: string
                 format: uuid
       responses:
